@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-white to-gray-300 h-screen flex items-center justify-center">
+    {% load tailwind_filters %}
+
+    <div class="bg-white p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/3">
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Iniciar Sesion</h1>
+        <form action="" method="post">
+
+            {% csrf_token %}
+            {{ form|crispy }}
+        
+            <input type="hidden" name="next" value="{% url 'inventario' %}">
+            <div class="mb-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline" type="submit" value="ingresar">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

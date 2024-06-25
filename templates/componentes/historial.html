@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Historial{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-8">
+        <h1 class="text-3xl font-semibold text-center mb-8">Historial</h1>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-800 text-white">
+                        <th class="py-2">Elemento</th>
+                        <th class="py-2">Marca</th>
+                        <th class="py-2">Observaciones</th>
+                        <th class="py-2">Cantidad</th>
+                        <th class="py-2">Estado</th>
+                        <th class="py-2">Carro</th>
+                        <th class="py-2">Fecha</th>
+                        <th class="py-2">Fecha de Entrega</th>
+                        <th class="py-2">Fecha de Revisión</th>
+                        <th class="py-2">Realizado Por</th>
+                        <th class="py-2">Revisado Por</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in inventario_data %}
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.elemento }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.marca }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.observaciones }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.cantidad }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.estado }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.carro }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.fecha }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.fecha_entrega }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.fecha_revision }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.realizado_por }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ item.revisado_por }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
